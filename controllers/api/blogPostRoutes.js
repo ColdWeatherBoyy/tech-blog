@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
 			return res.status(404).json("Please provide a valid title and post.");
 		}
 
-		const { user_id } = req.session.id;
+		const { user_id } = req.session.user_id;
 
 		const newBlog = await BlogPost.create({ title, post, user_id });
 

@@ -48,7 +48,7 @@ router.post("/", async (req, res) => {
 
 		// activates current loggedin session
 		req.session.save(() => {
-			req.session.id = userData.id;
+			req.session.user_id = newUser.id;
 			req.session.loggedIn = true;
 		});
 
@@ -69,8 +69,6 @@ router.post("/login", async (req, res) => {
 
 		const validPassword = userData.checkPassword(req.body.password);
 
-		console.log(validPassword);
-
 		if (!validPassword) {
 			return res
 				.status(404)
@@ -78,9 +76,11 @@ router.post("/login", async (req, res) => {
 		}
 
 		req.session.save(() => {
-			req.session.id = userData.id;
+			req.session.user_id = userData.id;
 			req.session.loggedIn = true;
 		});
+
+		console.log(req.session);
 
 		res.status(200).json({ message: "Hooray, you are logged in." });
 	} catch (err) {
