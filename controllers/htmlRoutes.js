@@ -23,9 +23,23 @@ router.get("/", withAuth, async (req, res) => {
 	}
 });
 
-router.get("/dashboard", withAuth, (req, res) => {
+router.get("/dashboard", withAuth, async (req, res) => {
 	try {
-		res.render("dashboard", { loggedIn: req.session.loggedIn });
+		const userBlogData = await BlogPost.findAll({
+			where: { user_id: req.session.user_id },
+			attributes: ["title", "post", "created_at"],
+			include: [
+				{
+					model: User,
+					attributes: ["name"],
+				},
+			],
+			order: [["created_at", "DESC"]],
+		});
+
+		const blogs = userBlogData.map((blog) => blog.get({ plain: true }));
+
+		res.render("dashboard", { blogs, loggedIn: req.session.loggedIn });
 	} catch (err) {
 		res.status(500).json(err);
 	}
