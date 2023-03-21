@@ -1,7 +1,5 @@
-<ul>
-	<li>{{text}}</li>
-	<ul>
-		<li>Posted by {{user.name}}</li>
-		<li>Posted on: {{format_date created_at}}</li>
-	</ul>
-</ul>
+<div class="comment-box">
+	<p>{{user.name}} Says:</p>
+	<p class="comment-format">{{text}}</p>
+	<p class="comment-date">Posted on: {{format_date created_at}}</p>
+</div>

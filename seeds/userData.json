@@ -1,25 +1,30 @@
 [
 	{
+		"id": 1,
 		"name": "Hat Man",
 		"email": "bighat@gmail.com",
 		"password": "p@ssw0rd"
 	},
 	{
+		"id": 2,
 		"name": "Garbage Dumpling",
 		"email": "ieatfast@gmail.com",
 		"password": "p@ssw0rd"
 	},
 	{
+		"id": 3,
 		"name": "Cool Sam",
 		"email": "samiscool@protonmail.com",
 		"password": "p@ssw0rd"
 	},
 	{
+		"id": 4,
 		"name": "Cranston",
 		"email": "cranstonthegreat@hotmail.com",
 		"password": "p@ssw0rd"
 	},
 	{
+		"index": 5,
 		"name": "Carl",
 		"email": "carlcarlson@gmail.com",
 		"password": "p@ssw0rd"

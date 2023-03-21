@@ -1,14 +1,16 @@
 [
 	{
+		"id": 1,
 		"title": "The Hat Man Cometh",
-		"post": "I am the Hat Man, and I cometh",
-		"user_id": 3,
+		"post": "I am the Hat Man, and I cometh (this is about tech).",
+		"user_id": 1,
 		"created_at": 1679194111621
 	},
 	{
+		"id": 2,
 		"title": "The Hat Man Does Not Come",
-		"post": "I don't think he is coming",
-		"user_id": 1,
+		"post": "I don't think he is coming (this is also about tech).",
+		"user_id": 3,
 		"created_at": 1679280487866
 	}
 ]

@@ -1,0 +1,14 @@
+[
+	{
+		"text": "Oh I definitely am",
+		"user_id": 1,
+		"blogpost_id": 2,
+		"created_at": 1679437936
+	},
+	{
+		"text": "What does this have to do with tech?",
+		"user_id": 5,
+		"blogpost_id": 1,
+		"created_at": 1679280487866
+	}
+]
