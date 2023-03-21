@@ -81,6 +81,12 @@ nav a:hover {
 	text-align: end;
 }
 
+.comment-box {
+	margin: 5px;
+	padding: 5px;
+	border: solid 1px black;
+}
+
 .blog-info {
 	display: flex;
 	justify-content: space-between;

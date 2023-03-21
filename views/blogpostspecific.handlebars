@@ -7,8 +7,12 @@
 		</div>
 		<p class="card-body mt-4">{{blog.post}}</p>
 		<p class="blog-comments">
-			{{#if comments.length}}
-			{{> comments}}
+			{{#if blog.comments.length}}
+      <div class="comment-box">
+	    <h5>Comments</h4>
+			{{#each blog.comments as |comment|}}
+      {{> comments}}
+      {{/each}}
 			{{/if}}
 		</p>
 	</section>
