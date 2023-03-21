@@ -92,6 +92,13 @@ nav a:hover {
 	width: 100vw;
 }
 
+.flex-column {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .gallery {
 	flex: 4;
 	background-color: #fff;

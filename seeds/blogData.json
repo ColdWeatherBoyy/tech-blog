@@ -2,13 +2,13 @@
 	{
 		"title": "The Hat Man Cometh",
 		"post": "I am the Hat Man, and I cometh",
-		"user_id": 1,
+		"user_id": 3,
 		"created_at": 1679194111621
 	},
 	{
 		"title": "The Hat Man Does Not Come",
 		"post": "I don't think he is coming",
-		"user_id": 3,
+		"user_id": 1,
 		"created_at": 1679280487866
 	}
 ]
