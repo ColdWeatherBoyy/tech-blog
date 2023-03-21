@@ -1,0 +1,10 @@
+<div>
+	<section class="card">
+		<header class="centered"><strong>{{blog.title}}</strong></header>
+		<div class="blog-info mt-2 mx-1">
+			<span class="left">By {{blog.user.name}} </span>
+			<span class="right">Posted on: {{format_date blog.created_at}}</span>
+		</div>
+		<p class="card-body mt-4">{{blog.post}}</p>
+	</section>
+</div>

@@ -6,7 +6,7 @@ const withAuth = require("../utils/auth");
 router.get("/", withAuth, async (req, res) => {
 	try {
 		const blogData = await BlogPost.findAll({
-			attributes: ["title", "post", "created_at"],
+			attributes: ["title", "post", "created_at", "id"],
 			include: [
 				{
 					model: User,
@@ -27,7 +27,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 	try {
 		const userBlogData = await BlogPost.findAll({
 			where: { user_id: req.session.user_id },
-			attributes: ["title", "post", "created_at"],
+			attributes: ["title", "post", "created_at", "id"],
 			include: [
 				{
 					model: User,
@@ -49,6 +49,42 @@ router.get("/dashboard", withAuth, async (req, res) => {
 router.get("/login", (req, res) => {
 	try {
 		return res.render("login");
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+// route for individual blogpost
+router.get("/blogposts/:id", withAuth, async (req, res) => {
+	try {
+		const blogId = req.params.id;
+		const blogData = await BlogPost.findByPk(blogId, {
+			attributes: ["title", "post", "created_at", "id"],
+			include: [
+				{
+					model: User,
+					attributes: ["name"],
+				},
+				{
+					model: Comment,
+					attributes: ["text", "created_at"],
+					include: {
+						model: User,
+						attributes: ["name"],
+					},
+				},
+			],
+		});
+
+		if (!blogData) {
+			res.status(404).json(`No blog post with id ${blogId} found.`);
+		}
+
+		const blog = blogData.get({ plain: true });
+
+		console.log(blog);
+
+		res.render("blogpostspecific", { blog, loggedIn: req.session.loggedIn });
 	} catch (err) {
 		res.status(500).json(err);
 	}
