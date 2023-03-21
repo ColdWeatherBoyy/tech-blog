@@ -26,7 +26,7 @@ router.get("/:id", async (req, res) => {
 		});
 
 		if (!userData) {
-			res.status(404).json(`No user found with ID ${userId}.`);
+			return res.status(404).json(`No user found with ID ${userId}.`);
 		}
 
 		res.status(200).json(userData);
@@ -41,13 +41,14 @@ router.post("/", async (req, res) => {
 		const { name, email, password } = req.body;
 
 		if (!name || !email || !password) {
-			res.status(404).json("Please provide a valid name, email, and password");
+			return res.status(404).json("Please provide a valid name, email, and password");
 		}
 
 		const newUser = await User.create({ name, email, password });
 
 		// activates current loggedin session
 		req.session.save(() => {
+			req.session.id = userData.id;
 			req.session.loggedIn = true;
 		});
 
@@ -63,17 +64,21 @@ router.post("/login", async (req, res) => {
 		const userData = await User.findOne({ where: { email: req.body.email } });
 
 		if (!userData) {
-			res.status(404).json({ message: "Email not found, please try again." });
+			return res.status(404).json({ message: "Email not found, please try again." });
 		}
 
 		const validPassword = userData.checkPassword(req.body.password);
+
+		console.log(validPassword);
+
 		if (!validPassword) {
-			res
+			return res
 				.status(404)
 				.json({ message: "Password doesn't match our records, please try again" });
 		}
 
 		req.session.save(() => {
+			req.session.id = userData.id;
 			req.session.loggedIn = true;
 		});
 
