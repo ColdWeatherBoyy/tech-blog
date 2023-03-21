@@ -6,4 +6,11 @@ module.exports = {
 			endDate.getUTCFullYear() + 5
 		}`;
 	},
+	id_checker: (session_id, user_id) => {
+		if (session_id === user_id) {
+			return true;
+		} else {
+			return false;
+		}
+	},
 };

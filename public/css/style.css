@@ -98,7 +98,10 @@ nav a:hover {
 	text-align: left;
 	margin: 0px;
 }
-
+.flex-buttons {
+	display: flex;
+	justify-content: space-around;
+}
 .blog-info {
 	display: flex;
 	justify-content: space-between;

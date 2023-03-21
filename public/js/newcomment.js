@@ -12,7 +12,6 @@ const newCommentHandler = async (event) => {
 
 		if (response.ok) {
 			document.location.href = document.location.href;
-			// window.location.reload();
 		} else {
 			alert("Failed to add comment");
 		}

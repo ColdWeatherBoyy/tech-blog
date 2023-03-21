@@ -23,4 +23,16 @@ router.post("/", async (req, res) => {
 	}
 });
 
+// delete option for blogposts
+router.delete("/:id", (req, res) => {
+	try {
+		const blog_id = req.params.id;
+		BlogPost.destroy({ where: { id: blog_id } });
+
+		res.status(204).end();
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
 module.exports = router;

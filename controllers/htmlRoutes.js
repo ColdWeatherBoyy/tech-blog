@@ -68,7 +68,7 @@ router.get("/blogposts/:id", withAuth, async (req, res) => {
 	try {
 		const blogId = req.params.id;
 		const blogData = await BlogPost.findByPk(blogId, {
-			attributes: ["title", "post", "created_at", "id"],
+			attributes: ["title", "post", "created_at", "id", "user_id"],
 			include: [
 				{
 					model: User,
@@ -91,7 +91,11 @@ router.get("/blogposts/:id", withAuth, async (req, res) => {
 
 		const blog = blogData.get({ plain: true });
 
-		res.render("blogpostspecific", { blog, loggedIn: req.session.loggedIn });
+		res.render("blogpostspecific", {
+			blog,
+			loggedIn: req.session.loggedIn,
+			session_id: req.session.user_id,
+		});
 	} catch (err) {
 		res.status(500).json(err);
 	}
