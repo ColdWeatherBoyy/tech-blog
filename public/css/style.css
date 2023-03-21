@@ -1,4 +1,4 @@
-/* pulled from edx curriculum module 14 unit 16 */
+/* Adapted from edx curriculum module 14 unit 16 */
 :root {
 	--primary: #3d5852;
 	--secondary: #86938f;
@@ -67,6 +67,23 @@ nav a:hover {
 	background-color: var(--dark);
 }
 
+.centered {
+	text-align: center;
+}
+
+.right {
+	text-align: start;
+}
+
+.left {
+	text-align: end;
+}
+
+.blog-info {
+	display: flex;
+	justify-content: space-between;
+}
+
 .gallery {
 	flex: 4;
 	background-color: #fff;
@@ -91,19 +108,6 @@ nav a:hover {
 img {
 	max-width: 100%;
 	height: auto;
-}
-
-.painting {
-	width: 50%;
-	background-color: white;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	margin-bottom: 25px;
-}
-
-.painting-details {
-	text-align: center;
-	padding: 10px 20px;
-	font-weight: bold;
 }
 
 /* CARDS */
