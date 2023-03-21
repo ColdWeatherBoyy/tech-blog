@@ -50,9 +50,11 @@ router.post("/", async (req, res) => {
 		req.session.save(() => {
 			req.session.user_id = newUser.id;
 			req.session.loggedIn = true;
-		});
 
-		res.status(200).json(newUser);
+			res
+				.status(200)
+				.json({ user: newUser, message: "Yay, user created and logged in!" });
+		});
 	} catch (err) {
 		res.status(500).json(err);
 	}
@@ -78,11 +80,9 @@ router.post("/login", async (req, res) => {
 		req.session.save(() => {
 			req.session.user_id = userData.id;
 			req.session.loggedIn = true;
+
+			res.status(200).json({ user: userData, message: "Yay, user logged in!" });
 		});
-
-		console.log(req.session);
-
-		res.status(200).json({ message: "Hooray, you are logged in." });
 	} catch (err) {
 		res.status(500).json(err);
 	}
