@@ -25,9 +25,9 @@ a {
 	text-decoration: none;
 }
 
-a:visited {
+/* a:visited {
 	color: inherit;
-}
+} */
 
 header {
 	padding: 40px;
