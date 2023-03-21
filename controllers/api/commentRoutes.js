@@ -1,18 +1,23 @@
 const router = require("express").Router();
 const { User, BlogPost, Comment } = require("../../models/index");
 
-router.post("/:id", async (req, res) => {
+router.post("/", async (req, res) => {
 	try {
-		if (!user_id) {
-			res.status(404).json("You gotta log in!");
-		}
-		const message = await Comment.create({
-			...req.body,
-			blogpost_id: req.params.id,
+		const currentURL = new URL(req.headers.referer).href;
+		const blogpost_id = currentURL.split("/")[currentURL.split("/").length - 1];
+
+		const text = req.body.comment;
+
+		const newComment = await Comment.create({
+			text: text,
+			blogpost_id: blogpost_id,
 			user_id: req.session.user_id,
 		});
-		res.json({ message });
+
+		res.json({ newComment });
 	} catch (err) {
 		res.status(500).json(err);
 	}
 });
+
+module.exports = router;

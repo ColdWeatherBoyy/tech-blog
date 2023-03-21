@@ -6,5 +6,26 @@
 			<span class="right">Posted on: {{format_date blog.created_at}}</span>
 		</div>
 		<p class="card-body mt-4">{{blog.post}}</p>
+		<p class="blog-comments">
+			{{#if comments.length}}
+			{{> comments}}
+			{{/if}}
+		</p>
 	</section>
 </div>
+
+  <div class="comment-card">
+      <h2 class="page-title">Add a Comment?</h2>
+      <form class="form comment-form">
+        <div class="form-group">
+          <label for="comment-post">Comment Post</label>
+          <input class="form-input" type="text" id="comment-post" />
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" type="submit">Add New Comment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="/js/newcomment.js"></script>

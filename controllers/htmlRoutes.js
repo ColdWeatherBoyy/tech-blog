@@ -91,8 +91,6 @@ router.get("/blogposts/:id", withAuth, async (req, res) => {
 
 		const blog = blogData.get({ plain: true });
 
-		console.log(blog);
-
 		res.render("blogpostspecific", { blog, loggedIn: req.session.loggedIn });
 	} catch (err) {
 		res.status(500).json(err);
