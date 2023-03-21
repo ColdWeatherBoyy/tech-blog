@@ -57,4 +57,30 @@ router.post("/", async (req, res) => {
 	}
 });
 
+// login route
+router.post("/login", async (req, res) => {
+	try {
+		const userData = await User.findOne({ where: { email: req.body.email } });
+
+		if (!userData) {
+			res.status(404).json({ message: "Email not found, please try again." });
+		}
+
+		const validPassword = userData.checkPassword(req.body.password);
+		if (!validPassword) {
+			res
+				.status(404)
+				.json({ message: "Password doesn't match our records, please try again" });
+		}
+
+		req.session.save(() => {
+			req.session.loggedIn = true;
+		});
+
+		res.status(200).json({ message: "Hooray, you are logged in." });
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
 module.exports = router;
