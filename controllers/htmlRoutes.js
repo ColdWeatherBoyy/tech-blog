@@ -23,6 +23,14 @@ router.get("/", withAuth, async (req, res) => {
 	}
 });
 
+router.get("/dashboard", withAuth, (req, res) => {
+	try {
+		res.render("dashboard", { loggedIn: req.session.loggedIn });
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
 // route for login page
 router.get("/login", (req, res) => {
 	try {

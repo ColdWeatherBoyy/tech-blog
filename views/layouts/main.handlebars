@@ -15,12 +15,12 @@
 			<a href="/">Homepage</a>
 			<a href="/dashboard">Dashboard</a>
 			{{#if loggedIn}}
-				<button id="logout" class="btn-no-style">Logout</button>
+				<a id="logout">Logout</a>
 			{{else}}
 				<a href="/login">Login</a>
 			{{/if}}
 		</nav>
-		<main>
+		<main class="mt-5">
 			{{{body}}}
 		</main>
 		{{#if loggedIn}}
