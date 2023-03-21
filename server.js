@@ -17,7 +17,7 @@ const sess = {
 	secret: process.env.SESSION_SECRET,
 	cookie: { maxAge: 360000 },
 	resave: false,
-	saveUnitialized: false,
+	saveUninitialized: false,
 	store: new SequelizeStore({
 		db: sequelize,
 	}),
@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(routes);
+app.use("/", routes);
 
 sequelize.sync({ force: false }).then(() => {
 	app.listen(PORT, () => console.log("Now listening"));

@@ -44,23 +44,25 @@ User.init(
 			// password hashing before create
 			beforeCreate: async (newUserData) => {
 				newUserData.password = await bcrypt.hash(newUserData.password, 10);
-				return newUserData;
-			},
-			// password hashing before update
-			beforeUpdate: async (newUserData) => {
-				newUserData.password = await bcrypt.hash(newUserData.password, 10);
-				return newUserData;
-			},
-			// uniformity of email data before create
-			beforeCreate: async (newUserData) => {
 				newUserData.email = await newUserData.email.toLowerCase();
 				return newUserData;
 			},
-			// uniformity of email data before create
+			// password hashing before update
 			beforeUpdate: async (updatedUserData) => {
+				updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
 				updatedUserData.email = await updatedUserData.email.toLowerCase();
-				return updatedUserData;
+				return newUserData;
 			},
+			// // uniformity of email data before create
+			// beforeCreate: async (newUserData) => {
+			// 	newUserData.email = await newUserData.email.toLowerCase();
+			// 	return newUserData;
+			// },
+			// // uniformity of email data before create
+			// beforeUpdate: async (updatedUserData) => {
+			// 	updatedUserData.email = await updatedUserData.email.toLowerCase();
+			// 	return updatedUserData;
+			// },
 		},
 		sequelize,
 		timestamps: false,
