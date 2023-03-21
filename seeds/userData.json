@@ -1,0 +1,27 @@
+[
+	{
+		"name": "Hat Man",
+		"email": "bighat@gmail.com",
+		"password": "p@ssw0rd"
+	},
+	{
+		"name": "Garbage Dumpling",
+		"email": "ieatfast@gmail.com",
+		"password": "p@ssw0rd"
+	},
+	{
+		"name": "Cool Sam",
+		"email": "samiscool@protonmail.com",
+		"password": "p@ssw0rd"
+	},
+	{
+		"name": "Cranston",
+		"email": "cranstonthegreat@hotmail.com",
+		"password": "p@ssw0rd"
+	},
+	{
+		"name": "Carl",
+		"email": "carlcarlson@gmail.com",
+		"password": "p@ssw0rd"
+	}
+]
