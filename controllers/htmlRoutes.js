@@ -31,7 +31,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 			include: [
 				{
 					model: User,
-					attributes: ["name"],
+					attributes: ["name", "id"],
 				},
 			],
 			order: [["created_at", "DESC"]],
@@ -49,6 +49,15 @@ router.get("/dashboard", withAuth, async (req, res) => {
 router.get("/login", (req, res) => {
 	try {
 		return res.render("login");
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+// route for creating blogposts
+router.get("/blogposts/create", withAuth, async (req, res) => {
+	try {
+		res.render("blogpostcreate", { loggedIn: req.session.loggedIn });
 	} catch (err) {
 		res.status(500).json(err);
 	}
