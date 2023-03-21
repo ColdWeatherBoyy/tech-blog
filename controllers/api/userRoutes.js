@@ -90,9 +90,9 @@ router.post("/login", async (req, res) => {
 
 // logout request
 router.post("/logout", (req, res) => {
-	if (req.session.loggedin) {
+	if (req.session.loggedIn) {
 		req.session.destroy();
-		res.status(201).json({ message: "You are not logged in anymore." });
+		res.status(200).json({ message: "You are not logged in anymore." });
 	} else {
 		res.status(404).json({ message: "You are not logged in anymore." });
 	}
