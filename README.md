@@ -14,7 +14,7 @@ As stated above, just visit the deployed site [here]() and enjoy!
 
 Here is a screenshot:
 
-![alt text](assets/images/screenshot.png)
+![screenshot of site](/public/assets/images/screenshot.png)
 
 ## Credits
 
