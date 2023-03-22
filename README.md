@@ -10,7 +10,7 @@ No installation, just visit the deployed site and enjoy!
 
 ## Usage
 
-As stated above, just visit the deployed site [here]() and enjoy!
+As stated above, just visit the deployed site [here](https://tech-blog-42424242.herokuapp.com/) and enjoy!
 
 Here is a screenshot:
 
