@@ -101,4 +101,28 @@ router.get("/blogposts/:id", withAuth, async (req, res) => {
 	}
 });
 
+// update route
+router.get("/blogposts/update/:id", withAuth, async (req, res) => {
+	try {
+		const blogId = req.params.id;
+
+		const blogData = await BlogPost.findByPk(blogId, {
+			attributes: ["title", "post", "created_at", "id", "user_id"],
+		});
+
+		if (!blogData) {
+			res.status(404).json(`No blog post with id ${blogId} found.`);
+		}
+
+		const blog = blogData.get({ plain: true });
+
+		res.render("blogpostupdate", {
+			blog,
+			loggedIn: req.session.loggedIn,
+		});
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
 module.exports = router;

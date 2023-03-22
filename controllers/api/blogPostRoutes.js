@@ -23,6 +23,24 @@ router.post("/", async (req, res) => {
 	}
 });
 
+// update blogpost route
+router.put("/", async (req, res) => {
+	try {
+		const { title, post, blogpost_id } = req.body;
+
+		const updatedBlogPost = await BlogPost.findByPk(blogpost_id);
+
+		updatedBlogPost.title = title;
+		updatedBlogPost.post = post;
+
+		await updatedBlogPost.save();
+
+		res.status(200).json(updatedBlogPost);
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
 // delete option for blogposts
 router.delete("/:id", (req, res) => {
 	try {

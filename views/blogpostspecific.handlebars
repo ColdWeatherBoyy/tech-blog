@@ -9,7 +9,7 @@
     {{#if (id_checker session_id blog.user_id)}}
     <div class="flex-buttons">
       <button class="left" id="post-delete">Delete</button>
-      <button class="right" id="post-update">Update</button>
+      <a href="/blogposts/update/{{blog.id}}"><button class="right" id="post-update">Update</button></a>
     </div>
     {{/if}}
 		<p class="blog-comments">
@@ -41,5 +41,5 @@
 <script src="/js/newcomment.js"></script>
 {{#if id_checker}}
 <script src="/js/deletepost.js"></script>
-{{!-- <script src="/js/updatepost.js"></script> --}}
+<script src="/js/updatepost.js"></script>
 {{/if}}
