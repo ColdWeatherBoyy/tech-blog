@@ -9,6 +9,9 @@
 		"seed": "node seeds/seeds.js",
 		"build": "npm run seed"
 	},
+	"engines": {
+		"node": "16.9.1"
+	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
