@@ -43,10 +43,10 @@ router.put("/", async (req, res) => {
 
 // delete option for blogposts
 router.delete("/:id", (req, res) => {
+	console.log("HERE");
 	try {
 		const blog_id = req.params.id;
 		BlogPost.destroy({ where: { id: blog_id } });
-
 		res.status(204).end();
 	} catch (err) {
 		res.status(500).json(err);

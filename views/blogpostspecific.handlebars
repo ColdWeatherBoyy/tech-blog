@@ -39,7 +39,6 @@
   </div>
 </div>
 <script src="/js/newcomment.js"></script>
-{{#if id_checker}}
+{{#if (id_checker session_id blog.user_id)}}
 <script src="/js/deletepost.js"></script>
-<script src="/js/updatepost.js"></script>
 {{/if}}
