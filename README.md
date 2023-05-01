@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a sample tech blog, used as a first experiment in connecting front-end and back-end. It offered practiced in Node.js, Express, Handlebars, Sequelize, and many other technologies. It is not complete polished, but demonstrates full functionality.
+This is a sample tech blog, used as a first experiment in connecting front-end and back-end. It offered practiced in Node.js, Express, Handlebars, Sequelize, and many other technologies. It is not complete or fully polished, but demonstrates full functionality.
 
 ## Installation
 
